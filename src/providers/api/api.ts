@@ -21,6 +21,7 @@ export class ApiProvider {
     parameters.forEach.call((key, value) => {
       params.set(key, value);
     });
+
     return this.http.get(this.api + endpoint, {params: params});
   }
 

@@ -20,7 +20,9 @@ import {ArticleTabsPageModule} from "../pages/tabs-test/article-tabs/article-tab
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp, {
+      swipeBackEnabled: 'true'
+    }),
     //HomePageModule,
     //TestPageModule,
     ArticleTabsPageModule,

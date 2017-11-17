@@ -1,28 +1,48 @@
-import { HttpClient } from '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable()
 export class ItunesProvider {
 
-  apiRoot:string = 'https://itunes.apple.com/search';
-  results: Object[];
+  private apiRoot:string = 'https://itunes.apple.com/search';
 
-  constructor(public http: HttpClient) {
-    console.log('Hello ItunesProvider Provider');
-  }
+  public results: any;
+  public counter: number = 0;
 
-  search(term:string) {
+  constructor(public http: HttpClient) {}
+
+  search(term:string, offset ?: number) {
+    this.results = [];
+    this.counter = 0;
+
     let promise = new Promise((resolve, reject) => {
-      let apiURL = `${this.apiRoot}?term=${term}&media=music&limit=20`;
+      //let apiURL = `${this.apiRoot}?term=${term}&media=music&limit=10&offset=${offset}`;
+      // ou
+      let apiURL = this.apiRoot + '?term=' + term + '&media=music&limit=10&offset=' + offset;
+
+      /*
+      let params = new HttpParams();
+      params.append('media', 'music');
+      params.append('limit', '10');
+      params.append('offset', offset.toString());
+      params.append('term', term);
+      */
+
+      //let headers = new HttpHeaders();
+      //headers.set('key', 'value');
+
+      apiURL = apiURL.replace(' ', '+');
       this.http.get(apiURL)
         .toPromise()
         .then(
-          res => { // Success
-            this.results = res['results'];
+          response => {
+            console.log(response);
+            this.counter =response['resultCount'];
+            this.results = response['results'];
             resolve();
           },
-          msg => { // Error
-            reject(msg);
+          error => {
+            reject(error);
           }
         );
     });

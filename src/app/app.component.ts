@@ -12,7 +12,7 @@ import {HomeTabsPage} from "../pages/home-tabs/home-tabs";
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage:any = ArticleTabsPage;
+  rootPage:any = 'ArticleTabsPage';
 
   public pages: Array <{title: string, pageName: string}>;
 
