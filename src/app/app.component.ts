@@ -4,13 +4,15 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
+import {ArticleTabsPage} from "../pages/tabs-test/article-tabs/article-tabs";
+import {HomeTabsPage} from "../pages/home-tabs/home-tabs";
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage:any = HomePage;
+  rootPage:any = ArticleTabsPage;
 
   public pages: Array <{title: string, pageName: string}>;
 
@@ -18,7 +20,7 @@ export class MyApp {
     this.init();
 
     this.pages = [
-      {title: 'Accueil', pageName: 'home'},
+      {title: 'Accueil', pageName: 'ArticleTabsPage'},
       {title: 'Page de Test', pageName: 'test'},
       {title: 'A propos', pageName: 'AboutTabsPage'},
       {title: 'Article Tabs', pageName: 'ArticleTabsPage'}

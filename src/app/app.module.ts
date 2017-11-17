@@ -11,6 +11,8 @@ import {TestPageModule} from "../pages/test/test.module";
 import { ApiProvider } from '../providers/api/api';
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import { ItunesProvider } from '../providers/itunes/itunes';
+import {HomeTabsPageModule} from "../pages/home-tabs/home-tabs.module";
+import {ArticleTabsPageModule} from "../pages/tabs-test/article-tabs/article-tabs.module";
 
 @NgModule({
   declarations: [
@@ -19,9 +21,9 @@ import { ItunesProvider } from '../providers/itunes/itunes';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    HomePageModule,
-    TestPageModule,
-
+    //HomePageModule,
+    //TestPageModule,
+    ArticleTabsPageModule,
     HttpClientModule,
   ],
   bootstrap: [IonicApp],

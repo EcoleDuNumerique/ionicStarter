@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController } from 'ionic-angular';
+import {Component, ViewChild} from '@angular/core';
+import {IonicPage, NavController} from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -8,10 +8,9 @@ import { IonicPage, NavController } from 'ionic-angular';
 })
 export class ArticleTabsPage {
 
-  tabOneRoot = 'TabOnePage';
-  tabTwoRoot = 'TabTwoPage';
+  tabOneRoot = 'home';
+  tabTwoRoot = 'test';
   tabThreeRoot = 'TabThreePage';
 
   constructor() {}
-
 }
