@@ -20,7 +20,8 @@ export class MyApp {
     this.pages = [
       {title: 'Accueil', pageName: 'home'},
       {title: 'Page de Test', pageName: 'test'},
-      {title: 'A propos', pageName: 'AboutTabsPage'}
+      {title: 'A propos', pageName: 'AboutTabsPage'},
+      {title: 'Article Tabs', pageName: 'ArticleTabsPage'}
     ];
   }
 
