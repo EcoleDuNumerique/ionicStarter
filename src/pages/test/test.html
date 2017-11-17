@@ -6,13 +6,23 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>Test</ion-title>
+  <ion-navbar >
+    <ion-buttons start left>
+      <button ion-button icon-only (click)="closeModal()" *ngIf="isModal">
+        <ion-icon name="close"></ion-icon>
+      </button>
+      <button ion-button menuToggle *ngIf="!isModal">
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Page de Test</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+  <p>Bienvenue sur la page de test {{ name }}</p>
 
+  <button ion-button color="primary" (click)="goToHomePage()">Page d'accueil</button>
 </ion-content>

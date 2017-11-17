@@ -6,7 +6,7 @@ import { Component, Input } from '@angular/core';
 })
 export class NameComponent {
 
-  @Input() name: string;
+  @Input() tab: any;
 
   constructor() {
     console.log('Hello NameComponent Component');

@@ -5,31 +5,36 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
 import { TestProvider } from '../providers/test/test';
-import {NameComponent} from "../components/name/name";
+import {HomePageModule} from "../pages/home/home.module";
+import {TestPageModule} from "../pages/test/test.module";
+import { ApiProvider } from '../providers/api/api';
+import {HttpClient, HttpClientModule} from "@angular/common/http";
+import { ItunesProvider } from '../providers/itunes/itunes';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
-    NameComponent
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    HomePageModule,
+    TestPageModule,
+
+    HttpClientModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage,
-    NameComponent
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    TestProvider
+    TestProvider,
+    ApiProvider,
+    ItunesProvider,
   ]
 })
 export class AppModule {}
