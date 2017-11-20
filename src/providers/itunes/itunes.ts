@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class ItunesProvider {
 
-  private apiRoot:string = 'https://itunes.apple.com/search';
+  private apiRoot:string = 'https://itunes.apple.com/';
 
   public results: any;
   public counter: number = 0;
@@ -18,7 +18,7 @@ export class ItunesProvider {
     let promise = new Promise((resolve, reject) => {
       //let apiURL = `${this.apiRoot}?term=${term}&media=music&limit=10&offset=${offset}`;
       // ou
-      let apiURL = this.apiRoot + '?term=' + term + '&media=music&limit=10&offset=' + offset;
+      let apiURL = this.apiRoot + 'search?term=' + term + '&media=music&limit=10&offset=' + offset;
 
       /*
       let params = new HttpParams();
@@ -37,7 +37,7 @@ export class ItunesProvider {
         .then(
           response => {
             console.log(response);
-            this.counter =response['resultCount'];
+            this.counter = response['resultCount'];
             this.results = response['results'];
             resolve();
           },
@@ -47,6 +47,25 @@ export class ItunesProvider {
         );
     });
     return promise;
+  }
+
+  getPromise(id): Promise <any> {
+    let apiURL = this.apiRoot + 'lookup?id=' + id;
+    console.log(apiURL);
+    return new Promise((resolve, reject) => {
+      this.http.get(apiURL).toPromise().then((response) => {
+        console.log(response);
+        resolve(response);
+        return response;
+      }, error => {
+        reject(error);
+      })
+    });
+  }
+
+  get(id) {
+    let apiURL = this.apiRoot + 'lookup?id=' + id;
+    return this.http.get(apiURL);
   }
 }
 

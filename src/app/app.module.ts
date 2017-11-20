@@ -13,6 +13,7 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
 import { ItunesProvider } from '../providers/itunes/itunes';
 import {HomeTabsPageModule} from "../pages/home-tabs/home-tabs.module";
 import {ArticleTabsPageModule} from "../pages/tabs-test/article-tabs/article-tabs.module";
+import {IonicStorageModule, Storage} from "@ionic/storage";
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import {ArticleTabsPageModule} from "../pages/tabs-test/article-tabs/article-tab
     //TestPageModule,
     ArticleTabsPageModule,
     HttpClientModule,
+    IonicStorageModule.forRoot(),
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -39,6 +41,8 @@ import {ArticleTabsPageModule} from "../pages/tabs-test/article-tabs/article-tab
     TestProvider,
     ApiProvider,
     ItunesProvider,
+
+    //Storage,
   ]
 })
 export class AppModule {}

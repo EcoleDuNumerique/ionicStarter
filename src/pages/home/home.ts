@@ -47,28 +47,8 @@ export class HomePage {
 
   public name: string;
 
-  public articles: any;
-
   constructor(public navCtrl: NavController, public modalCtrl: ModalController, public toastCtrl: ToastController, public alertCtrl: AlertController, public api: ApiProvider, public http: HttpClient) {
     this.name = 'Alexandre';
-  }
-
-  ionViewCanEnter(): Promise <any> {
-    return new Promise((resolve, reject) => {
-      this.http.get('https://secure.lerugbynistere.fr/api').subscribe(response => {
-        //this.articles = response.json().data;
-        console.log(response);
-        this.articles = response;
-        resolve();
-      }, error => {
-        console.log(error);
-        reject();
-      });
-    });
-  }
-
-  ionViewDidEnter() {
-    console.log(this.articles.data);
   }
 
   /**

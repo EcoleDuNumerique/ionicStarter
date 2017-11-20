@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {Events, IonicPage, ModalController, NavController, NavParams} from 'ionic-angular';
 import {ItunesProvider} from "../../providers/itunes/itunes";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
@@ -27,7 +27,7 @@ export class ItunesPage {
   public counter: number = 0;
   public searchData: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public itunes: ItunesProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public itunes: ItunesProvider, public modalCtrl: ModalController, public events: Events) {
     //console.log(this.itunes.results);
 
     /*
@@ -61,6 +61,12 @@ export class ItunesPage {
       }
     }, 1000);
 
+  }
+
+  openModal(id) {
+    this.events.publish('modal:loaded', {foo: 'bar'});
+    let modal = this.modalCtrl.create('ItunesModalPage', {id: id});
+    modal.present();
   }
 
   /*

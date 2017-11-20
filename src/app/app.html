@@ -5,6 +5,10 @@
       <button  ion-item *ngFor="let page of pages" (click)="openPage(page)">
         {{ page.title }}
       </button>
+      <ion-item-divider text-center *ngIf="items">Mes musiques</ion-item-divider>
+      <button  ion-item *ngFor="let item of items" (click)="openMusic(item)">
+        {{ item.title }}
+      </button>
     </ion-list>
   </ion-content>
 </ion-menu>
